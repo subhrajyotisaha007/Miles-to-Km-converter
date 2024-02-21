@@ -1,37 +1,40 @@
-import tkinter
-from tkinter import  *
+from tkinter import *
 
-window = tkinter.Tk()
-window.title('UI')
-window.minsize(width=500, height=400)
-window.config(padx=100,pady=200)
+window = Tk()
+window.minsize(width=100,height=100)
+window.title('Mile to Km converter')
+window.config(padx=10,pady=10)
 
-#label
-my_label = tkinter.Label(text='I am a label', font=('Arial',24,'bold'))
-my_label.grid(row=0,column=0)
-my_label.config(pady=20,padx=20)
-
-my_label['text'] = 'hello'
-my_label.config(text='hi')
-
-#button
-def clicked():
-    my_label.config(text= inp.get())
-def Notclicked():
-    my_label.config(text='text')
-
-button = Button(text='click me', command=clicked)
-button.grid(row=1,column=1)
-
-button2 = Button(text='notclick me', command=Notclicked)
-button2.grid(row=0,column=2)
+#lable
+label_01 = Label()
+label_01.config(text='is equal')
+label_01.grid(row=1,column=0)
+label_01.config(padx=10,pady=10)
+label_02 = Label()
+label_02.config(text='Km')
+label_02.grid(row=1,column=2)
+label_02.config(padx=10,pady=10)
+label_03 = Label()
+label_03.config(text='0')
+label_03.grid(row=1,column=1)
+label_03.config(padx=10,pady=10)
+label_04 = Label()
+label_04.config(text='Miles')
+label_04.grid(row=0,column=2)
+label_04.config(padx=10,pady=10)
 
 #entry
 inp = Entry(width=10)
-inp.grid(row=2,column=3)
+inp.grid(row=0,column=1)
 
 
-
-
-
+#button
+def clicked():
+    miles = int(inp.get())
+    km = round(miles * 1.60934)
+    label_03.config(text=str(km))
+button = Button()
+button.config(text='Calculate',command=clicked)
+button.grid(row=2,column=1)
 window.mainloop()
+button.config(padx=10,pady=10)
